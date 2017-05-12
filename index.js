@@ -6,12 +6,17 @@ const mongojs = require('mongojs');
 // Create a server with a host and port
 const server = new Hapi.Server();
 server.connection({
-    host: 'localhost',
-    port: 3000
+    host: '0.0.0.0',
+    port: process.env.PORT || 3000
 });
 
+var uristring =
+    process.env.MONGOLAB_URI ||
+    process.env.MONGOHQ_URL ||
+    'mongodb://localhost/place';
+
 // Connect to db
-server.app.db = mongojs('place',['place','books']);
+server.app.db = mongojs(uristring,['place','books']);
 
 //Load plugins and start server
 server.register([
