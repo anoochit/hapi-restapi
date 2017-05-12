@@ -10,6 +10,9 @@ server.connection({
     port: process.env.PORT || 3000
 });
 
+//server.realm.modifiers.route.prefix = '/api/v1'
+
+// Get mongodb uri
 var uristring =
     process.env.MONGODB_URI ||
     'mongodb://localhost/place';
@@ -19,7 +22,8 @@ server.app.db = mongojs(uristring,['place','books']);
 
 //Load plugins and start server
 server.register([
-  require('./routes/place'),require('./routes/book')
+  require('./routes/place'),
+  require('./routes/book')
 ], (err) => {
 
   if (err) {
