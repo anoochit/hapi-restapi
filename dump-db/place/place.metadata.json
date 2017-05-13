@@ -1,1 +1,1 @@
-{"options":{"autoIndexId":true},"indexes":[{"ns":"place.place","v":1,"key":{"_id":1},"name":"_id_"}]}
+{"options":{"autoIndexId":true},"indexes":[{"ns":"place.place","v":1,"key":{"_id":1},"name":"_id_"},{"v":1,"key":{"geolocation":"2d"},"name":"geolocation_2d","ns":"place.place"}]}
