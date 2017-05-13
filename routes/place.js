@@ -44,7 +44,7 @@ exports.register = function(server, options, next) {
   // GET place nearby lat and lon
   server.route({
     method: 'GET',
-    path: '/near/{geo*}',
+    path: '/place/near/{geo*}',
     handler: function (request, reply) {
         var geoPart = request.params.geo.split('/');
         db.place.find({geolocation:{$near:[parseFloat(geoPart[0]),parseFloat(geoPart[1])]}},(err, docs) => {
