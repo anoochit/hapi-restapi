@@ -41,7 +41,7 @@ exports.register = function(server, options, next) {
     }
   });
 
-  // GET place by _id
+  // GET place nearby lat and lon
   server.route({
     method: 'GET',
     path: '/near/{geo*}',
